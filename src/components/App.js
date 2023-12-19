@@ -17,6 +17,8 @@ const App = () => {
     Axios.get(`${URL}${searchInput}&appid=${API_KEY}`)
       .then((res) => setWeatherData(res))
       .catch((err) => console.log(err));
+
+    setSearchInput("");
   }
 
   return (
@@ -27,6 +29,7 @@ const App = () => {
           type="text"
           placeholder="Enter a city"
           onChange={(e) => setSearchInput(e.target.value)}
+          value={searchInput}
         />
       </form>
       <Weather data={weatherData} />
